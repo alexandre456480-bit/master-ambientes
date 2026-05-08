@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Orçamento Grátis — Móveis Planejados em Goiânia | Master Ambientes</title>
+  <meta name="description" content="Solicite seu orçamento grátis de móveis planejados em Goiânia. Preencha o formulário e receba atendimento personalizado via WhatsApp. Sem compromisso!">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://masterambientesplanejados.com.br/orcamento.html">
+  <meta name="geo.region" content="BR-GO">
+  <meta name="geo.placename" content="Goiânia">
+  <meta property="og:title" content="Orçamento Grátis — Móveis Planejados em Goiânia">
+  <meta property="og:description" content="Preencha o formulário e fale direto com a gente pelo WhatsApp. Orçamento sem compromisso!">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="./img/logo2.webp">
+  <meta property="og:locale" content="pt_BR">
+  <link rel="icon" href="./img/logo2.webp" type="image/webp">
+  <meta name="theme-color" content="#1a1612">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" media="print" onload="this.media='all'">
+  <link rel="preload" as="image" href="./hero/estante-planejada.webp" fetchpriority="high">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="pages.css">
+</head>
+<body>
+
+  <nav class="navbar scrolled" id="navbar" aria-label="Navegação principal">
+    <a href="index.html" class="navbar__logo"><img src="./img/logo1.webp" alt="Master Móveis Logo" width="150" height="50"></a>
+    <div class="navbar__links" id="navLinks">
+      <a href="index.html">Início</a>
+      <a href="servicos.html">Serviços</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="orcamento.html" class="active">Orçamento</a>
+      <a href="blog.html">Blog</a>
+      <a href="https://www.instagram.com/masterambientesplanejados/" class="navbar__instagram" target="_blank" rel="noopener" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></a>
+      <a href="orcamento.html" class="navbar__cta">Faça Seu Orçamento</a>
+    </div>
+    <div class="navbar__hamburger" id="hamburger" role="button" tabindex="0"><span></span><span></span><span></span></div>
+  </nav>
+
+  <!-- ========== ORÇAMENTO SPLIT ========== -->
+  <section class="orc-split">
+    <!-- Lado esquerdo: Imagem -->
+    <div class="orc-split__image">
+      <img src="./hero/estante-planejada.webp" alt="Estante planejada sob medida — Master Ambientes Goiânia" fetchpriority="high">
+      <div class="orc-split__image-overlay"></div>
+      <div class="orc-split__image-content">
+        <img src="./img/logo1.webp" alt="Master Móveis" width="140" loading="lazy" class="orc-split__logo">
+        <div class="orc-split__trust">
+          <div class="orc-split__trust-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Orçamento 100% gratuito</span>
+          </div>
+          <div class="orc-split__trust-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Sem compromisso</span>
+          </div>
+          <div class="orc-split__trust-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Resposta em até 2h</span>
+          </div>
+          <div class="orc-split__trust-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Visita técnica gratuita</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lado direito: Formulário -->
+    <div class="orc-split__form">
+      <div class="orc-split__form-inner">
+        <div class="orc-split__form-header">
+          <h1>Solicite Seu<br><span>Orçamento Grátis</span></h1>
+          <p>Preencha os detalhes do seu projeto. Ao enviar, você será direcionado ao WhatsApp com a mensagem pronta.</p>
+        </div>
+
+        <form id="orcamentoForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="nome">Nome completo</label>
+              <input type="text" id="nome" placeholder="Seu nome" required>
+            </div>
+            <div class="form-group">
+              <label for="telefone">Telefone / WhatsApp</label>
+              <input type="tel" id="telefone" placeholder="(62) 99999-9999" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="servico">Tipo de serviço</label>
+            <select id="servico" required>
+              <option value="" disabled selected>Selecione o serviço desejado</option>
+              <option value="Cozinha Planejada">Cozinha Planejada</option>
+              <option value="Closet Sob Medida">Closet Sob Medida</option>
+              <option value="Quarto Planejado">Quarto Planejado</option>
+              <option value="Sala Planejada">Sala Planejada</option>
+              <option value="Home Office">Home Office</option>
+              <option value="Banheiro Planejado">Banheiro Planejado</option>
+              <option value="Área Gourmet">Área Gourmet</option>
+              <option value="Ambiente Corporativo">Ambiente Corporativo</option>
+              <option value="Painel / Rack">Painel / Rack</option>
+              <option value="Outro">Outro</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="bairro">Bairro / Região</label>
+              <input type="text" id="bairro" placeholder="Ex: Setor Bueno, Goiânia">
+            </div>
+            <div class="form-group">
+              <label for="prazo">Prazo desejado</label>
+              <select id="prazo">
+                <option value="" disabled selected>Quando precisa?</option>
+                <option value="Urgente (até 15 dias)">Urgente (até 15 dias)</option>
+                <option value="Em até 30 dias">Em até 30 dias</option>
+                <option value="Em até 60 dias">Em até 60 dias</option>
+                <option value="Sem pressa">Sem pressa</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="mensagem">Descreva seu projeto</label>
+            <textarea id="mensagem" placeholder="Conte pra gente: tamanho do ambiente, materiais, cores, referências... quanto mais detalhes, melhor!" required></textarea>
+          </div>
+
+          <button type="submit" class="form-submit">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="22" height="22" fill="currentColor"><path d="M16.004 0h-.008C7.174 0 0 7.176 0 16.004c0 3.5 1.128 6.744 3.046 9.378L1.054 31.29l6.118-1.958c2.518 1.682 5.52 2.664 8.832 2.664C24.826 31.996 32 24.82 32 16.004S24.826 0 16.004 0zm9.508 22.618c-.396 1.116-2.296 2.076-3.202 2.208-.82.118-1.856.166-2.994-.188a27.24 27.24 0 0 1-2.71-1.002c-4.772-2.06-7.888-6.896-8.128-7.218-.23-.318-1.904-2.536-1.904-4.836s1.206-3.43 1.634-3.898c.43-.468.936-.586 1.248-.586.312 0 .624.002.898.016.288.016.674-.11 1.054.804.396.95 1.346 3.29 1.462 3.528.118.238.196.516.04.832-.158.318-.238.516-.468.794-.232.278-.488.622-.696.834-.232.238-.474.496-.204.972.27.468 1.202 1.982 2.582 3.212 1.774 1.582 3.27 2.072 3.732 2.31.468.238.74.198 1.012-.118.278-.318 1.178-1.374 1.492-1.844.312-.468.624-.39 1.054-.234.432.158 2.742 1.294 3.21 1.53.468.238.78.354.898.55.116.198.116 1.136-.28 2.252z"/></svg>
+            Enviar pelo WhatsApp
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Navbar
+    const hamburger=document.getElementById('hamburger'),navLinks=document.getElementById('navLinks');
+    hamburger.addEventListener('click',()=>{hamburger.classList.toggle('active');navLinks.classList.toggle('open')});
+    navLinks.querySelectorAll('a').forEach(l=>l.addEventListener('click',()=>{hamburger.classList.remove('active');navLinks.classList.remove('open')}));
+
+    // Form → WhatsApp
+    document.getElementById('orcamentoForm').addEventListener('submit',function(e){
+      e.preventDefault();
+      const nome=document.getElementById('nome').value.trim();
+      const tel=document.getElementById('telefone').value.trim();
+      const srv=document.getElementById('servico').value;
+      const bairro=document.getElementById('bairro').value.trim()||'Não informado';
+      const prazo=document.getElementById('prazo').value||'Não informado';
+      const msg=document.getElementById('mensagem').value.trim();
+      const texto=`Olá! Vim pelo site e gostaria de solicitar um orçamento.\n\n*Nome:* ${nome}\n*Telefone:* ${tel}\n*Serviço:* ${srv}\n*Bairro/Região:* ${bairro}\n*Prazo:* ${prazo}\n\n*Detalhes do projeto:*\n${msg}`;
+      window.open(`https://wa.me/5562996082008?text=${encodeURIComponent(texto)}`,'_blank');
+    });
+  </script>
+</body>
+</html>
