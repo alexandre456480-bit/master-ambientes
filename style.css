@@ -1067,6 +1067,308 @@ img {
 }
 
 /* ============================================
+   TAMBÉM FAZEMOS (dentro de serviços)
+   ============================================ */
+.tambem-fazemos {
+  max-width: 1200px;
+  margin: 5rem auto 0;
+  padding: 0 4%;
+}
+
+.tambem-fazemos__header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-bottom: 1.2rem;
+}
+
+.tambem-fazemos__line {
+  flex: 1;
+  max-width: 120px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--marrom), transparent);
+}
+
+.tambem-fazemos__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-weight: 700;
+  color: var(--marrom-escuro);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.tambem-fazemos__desc {
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+  line-height: 1.7;
+  color: rgba(26, 22, 18, 0.7);
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 3rem;
+}
+
+.tambem-fazemos__desc strong {
+  color: var(--marrom);
+  font-weight: 600;
+}
+
+.tambem-fazemos__gallery {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 1.2rem;
+  margin-bottom: 2.5rem;
+}
+
+.tambem-fazemos__img-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.tambem-fazemos__img-wrapper {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(92, 61, 36, 0.12);
+}
+
+.tambem-fazemos__img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+  display: block;
+}
+
+.tambem-fazemos__img-wrapper:hover img {
+  transform: scale(1.05);
+}
+
+.tambem-fazemos__img--large {
+  height: 100%;
+}
+
+.tambem-fazemos__img--large img {
+  height: 100%;
+  min-height: 340px;
+}
+
+.tambem-fazemos__img-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem 1.2rem;
+  background: linear-gradient(to top, rgba(26, 22, 18, 0.75), transparent);
+  color: var(--branco);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  backdrop-filter: blur(4px);
+  transform: translateY(100%);
+  transition: transform 0.4s ease;
+}
+
+.tambem-fazemos__img-wrapper:hover .tambem-fazemos__img-label {
+  transform: translateY(0);
+}
+
+.tambem-fazemos__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  justify-content: center;
+}
+
+.tambem-fazemos__tag {
+  padding: 0.5rem 1.2rem;
+  background: rgba(92, 61, 36, 0.06);
+  border: 1px solid rgba(92, 61, 36, 0.15);
+  border-radius: 50px;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--marrom-escuro);
+  transition: var(--transition);
+}
+
+.tambem-fazemos__tag:hover {
+  background: var(--marrom);
+  color: var(--branco-puro);
+  border-color: var(--marrom);
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   SEÇÃO DIFERENCIAIS
+   ============================================ */
+.diferenciais {
+  background: var(--preto);
+  padding: 6rem 4%;
+  position: relative;
+  overflow: hidden;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 700px;
+}
+
+.diferenciais__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+/* Imagem */
+.diferenciais__image-frame {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+}
+
+.diferenciais__image-frame img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.diferenciais__image-frame:hover img {
+  transform: scale(1.03);
+}
+
+.diferenciais__image-glow {
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(196, 169, 125, 0.25), transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Badge */
+.diferenciais__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 1rem;
+  background: rgba(196, 169, 125, 0.12);
+  border: 1px solid rgba(196, 169, 125, 0.2);
+  border-radius: 50px;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--bege);
+  margin-bottom: 1.2rem;
+}
+
+.diferenciais__badge-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--bege);
+  border-radius: 50%;
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+.diferenciais__title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 700;
+  color: var(--branco);
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.diferenciais__title span {
+  color: var(--bege);
+}
+
+.diferenciais__text {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.8;
+  color: rgba(250, 248, 245, 0.75);
+  margin-bottom: 2rem;
+}
+
+.diferenciais__text strong {
+  color: var(--bege);
+  font-weight: 600;
+}
+
+/* Items */
+.diferenciais__items {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.diferenciais__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+  padding: 1.2rem 1.4rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(196, 169, 125, 0.1);
+  border-radius: 14px;
+  transition: var(--transition);
+}
+
+.diferenciais__item:hover {
+  background: rgba(196, 169, 125, 0.08);
+  border-color: rgba(196, 169, 125, 0.25);
+  transform: translateX(6px);
+}
+
+.diferenciais__item-icon {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(196, 169, 125, 0.15), rgba(160, 119, 80, 0.1));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--bege);
+}
+
+.diferenciais__item h4 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--branco);
+  margin-bottom: 0.3rem;
+}
+
+.diferenciais__item p {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: rgba(250, 248, 245, 0.6);
+}
+
+/* Shape Dividers das novas seções */
+.shape-divider--servicos-diferenciais {
+  background: #F0EBE3;
+  margin-top: -1px;
+}
+
+.shape-divider--diferenciais-sobre {
+  background: var(--preto);
+  margin-top: -1px;
+}
+
+/* ============================================
    SEÇÃO SOBRE
    ============================================ */
 .sobre {
@@ -1663,6 +1965,25 @@ img {
     height: 180px;
   }
 
+  /* Também fazemos mobile */
+  .tambem-fazemos__gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .tambem-fazemos__img--large img {
+    min-height: 240px;
+  }
+
+  .tambem-fazemos__img-col {
+    flex-direction: row;
+  }
+
+  /* Diferenciais mobile */
+  .diferenciais__container {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
   /* Sobre mobile */
   .sobre__container {
     grid-template-columns: 1fr;
@@ -1760,6 +2081,30 @@ img {
   }
 
   .servicos__nav {
+    width: 40px;
+    height: 40px;
+  }
+
+  /* Também fazemos mobile small */
+  .tambem-fazemos__img-col {
+    flex-direction: column;
+  }
+
+  .tambem-fazemos__img--large img {
+    min-height: 200px;
+  }
+
+  /* Diferenciais mobile small */
+  .diferenciais {
+    padding: 4rem 4%;
+  }
+
+  .diferenciais__item {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .diferenciais__item-icon {
     width: 40px;
     height: 40px;
   }
