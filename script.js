@@ -467,8 +467,13 @@ document.addEventListener('DOMContentLoaded', () => {
       trackLeft.innerHTML = '';
       trackRight.innerHTML = '';
 
+      // OTIMIZAÇÃO MOBILE: Reduz o número de imagens no DOM em telas menores para aliviar a GPU e evitar jank
+      const isMobileSize = window.innerWidth < 768;
+      const imagesLeft = isMobileSize ? data.left.slice(0, 4) : data.left;
+      const imagesRight = isMobileSize ? data.right.slice(0, 4) : data.right;
+
       // Popula Track Left (imagens + clones)
-      data.left.forEach((src, idx) => {
+      imagesLeft.forEach((src, idx) => {
         const img = document.createElement('img');
         img.src = src;
         img.alt = `${filter} planejado sob medida ${idx + 1}`;
@@ -476,7 +481,7 @@ document.addEventListener('DOMContentLoaded', () => {
         trackLeft.appendChild(img);
       });
       // Clones
-      data.left.forEach((src) => {
+      imagesLeft.forEach((src) => {
         const img = document.createElement('img');
         img.src = src;
         img.alt = '';
@@ -486,7 +491,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
 
       // Popula Track Right (imagens + clones)
-      data.right.forEach((src, idx) => {
+      imagesRight.forEach((src, idx) => {
         const img = document.createElement('img');
         img.src = src;
         img.alt = `${filter} de alto padrão ${idx + 1}`;
@@ -494,7 +499,7 @@ document.addEventListener('DOMContentLoaded', () => {
         trackRight.appendChild(img);
       });
       // Clones
-      data.right.forEach((src) => {
+      imagesRight.forEach((src) => {
         const img = document.createElement('img');
         img.src = src;
         img.alt = '';
@@ -520,5 +525,10 @@ document.addEventListener('DOMContentLoaded', () => {
       updateMarquee(filter);
     });
   });
+
+  // Otimização de carga inicial no mobile: reduz a esteira pesada inicial estática para 4 itens
+  if (window.innerWidth < 768) {
+    updateMarquee('cozinhas');
+  }
 
 });

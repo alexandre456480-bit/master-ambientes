@@ -918,6 +918,9 @@ img {
   display: flex;
   width: max-content;
   transition: opacity 0.4s ease, transform 0.4s ease;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
 }
 
 .projetos__marquee-track.fade-out {
