@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Móveis Planejados em Goiânia | Master Ambientes Planejados — Marcenaria Sob Medida</title>
   <meta name="description" content="Móveis planejados em Goiânia sob medida: cozinhas, closets, salas, home office e banheiros planejados. +20 anos de marcenaria de alto padrão. Orçamento grátis!">
+  <meta name="keywords" content="móveis planejados em goiânia, marcenaria em goiânia, móveis sob medida goiânia, armários planejados goiânia, cozinha planejada goiânia, closet planejado goiânia, quarto planejado goiânia, marcenaria de alto padrão, arquitetura de interiores goiânia, móveis para apartamento goiânia, móveis planejados aparecida de goiânia, design de interiores goiânia, projetos 3d marcenaria, marcenaria de alto padrão goiânia setor bueno, móveis sob medida setor marista goiânia, closet sob medida jardim goiás, quanto custa móveis planejados em goiânia, melhor marcenaria de goiânia">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <link rel="canonical" href="https://masterambientesplanejados.com.br/">
 
@@ -60,10 +61,23 @@
 
     <div class="navbar__links" id="navLinks">
       <a href="index.html">Início</a>
+      <a href="resultados.html">Resultados</a>
       <a href="servicos.html">Serviços</a>
       <a href="sobre.html">Sobre</a>
       <a href="orcamento.html">Orçamento</a>
-      <a href="blog.html">Blog</a>
+
+      <!-- Dropdown Conteúdo (Blog & FAQs) -->
+      <div class="navbar__dropdown" id="navDropdown">
+        <a class="navbar__dropdown-toggle" role="button" tabindex="0">
+          Conteúdo 
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </a>
+        <div class="navbar__dropdown-menu">
+          <a href="blog.html">Blog</a>
+          <a href="faqs.html">Perguntas (FAQs)</a>
+        </div>
+      </div>
+
       <a href="https://www.instagram.com/masterambientesplanejados/" class="navbar__instagram" target="_blank" rel="noopener" aria-label="Instagram">
         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
       </a>
@@ -121,7 +135,8 @@
         Ambientes Planejados
       </div>
 
-      <h1 class="hero__title" id="heroTitle">
+      <h1 class="sr-only">Móveis Planejados em Goiânia e Marcenaria Sob Medida de Alto Padrão</h1>
+      <h2 class="hero__title" id="heroTitle">
         <span class="word" data-word="Seu">
           <span class="char">S</span><span class="char">e</span><span class="char">u</span>
         </span>
@@ -135,7 +150,7 @@
         <span class="word highlight" data-word="Arte.">
           <span class="char">A</span><span class="char">r</span><span class="char">t</span><span class="char">e</span><span class="char">.</span>
         </span>
-      </h1>
+      </h2>
 
       <p class="hero__subtitle" id="heroSubtitle">
         Transformamos ambientes em experiências únicas. Móveis planejados sob medida com design exclusivo, materiais de alta qualidade e acabamento impecável.
@@ -165,51 +180,64 @@
       <p class="projetos__desc">Cada ambiente que criamos conta uma história. Veja como transformamos espaços comuns em ambientes planejados de alto padrão — com marcenaria sob medida, materiais premium e aquele acabamento que você só encontra em Goiânia com a Master.</p>
     </div>
 
+    <!-- Filtros de Projetos -->
+    <div class="projetos__filters">
+      <button class="projetos__filter-btn active" data-filter="cozinhas">Cozinhas</button>
+      <button class="projetos__filter-btn" data-filter="quartos">Quartos e Closet</button>
+      <button class="projetos__filter-btn" data-filter="banheiros">Banheiros</button>
+      <button class="projetos__filter-btn" data-filter="salas">Salas</button>
+      <button class="projetos__filter-btn" data-filter="diversos">Diversos</button>
+    </div>
+
     <div class="projetos__marquee-wrapper">
       <!-- Fileira 1: Direita para Esquerda -->
       <div class="projetos__marquee">
-        <div class="projetos__marquee-track track-left">
-          <img src="./img/2°/acabamento.webp" alt="Móveis planejados acabamento premium" loading="lazy">
-          <img src="./img/2°/ambiente-planejado.webp" alt="Ambiente planejado sob medida Goiânia" loading="lazy">
-          <img src="./img/2°/ambiente.webp" alt="Design de interiores planejado" loading="lazy">
-          <img src="./img/2°/area-goumert.webp" alt="Área gourmet planejada em Goiânia" loading="lazy">
-          <img src="./img/2°/cozinha-planejada4.webp" alt="Cozinha planejada de luxo" loading="lazy">
-          <img src="./img/2°/design-ambiente.webp" alt="Marcenaria moderna e exclusiva" loading="lazy">
-          <img src="./img/2°/design-de-moveis.webp" alt="Móveis personalizados para sala" loading="lazy">
-          <!-- Clone para loop infinito -->
-          <img src="./img/2°/acabamento.webp" alt="" aria-hidden="true" loading="lazy">
-          <img src="./img/2°/ambiente-planejado.webp" alt="" aria-hidden="true" loading="lazy">
-          <img src="./img/2°/ambiente.webp" alt="" aria-hidden="true" loading="lazy">
-          <img src="./img/2°/area-goumert.webp" alt="" aria-hidden="true" loading="lazy">
-          <img src="./img/2°/cozinha-planejada4.webp" alt="" aria-hidden="true" loading="lazy">
-          <img src="./img/2°/design-ambiente.webp" alt="" aria-hidden="true" loading="lazy">
-          <img src="./img/2°/design-de-moveis.webp" alt="" aria-hidden="true" loading="lazy">
+        <div class="projetos__marquee-track track-left" id="trackLeft">
+          <img src="./img/2°/Cozinhas/cozinha-planejada-1.webp" alt="Cozinha planejada sob medida" loading="lazy">
+          <img src="./img/2°/Cozinhas/cozinha-planejada-2.webp" alt="Cozinha planejada moderna" loading="lazy">
+          <img src="./img/2°/Cozinhas/cozinha-planejada-3.webp" alt="Marcenaria de luxo cozinha" loading="lazy">
+          <img src="./img/2°/Cozinhas/cozinha-planejada-4.webp" alt="Área gourmet cozinha planejada" loading="lazy">
+          <img src="./img/2°/Cozinhas/cozinha-planejada-5.webp" alt="Cozinha sob medida" loading="lazy">
+          <img src="./img/2°/Cozinhas/cozinha-planejada-6.webp" alt="Cozinha planejada premium" loading="lazy">
+          <img src="./img/2°/Cozinhas/cozinha-planejada-7.webp" alt="Armários de cozinha planejados" loading="lazy">
+          <!-- Clones para loop infinito -->
+          <img src="./img/2°/Cozinhas/cozinha-planejada-1.webp" alt="" aria-hidden="true" loading="lazy">
+          <img src="./img/2°/Cozinhas/cozinha-planejada-2.webp" alt="" aria-hidden="true" loading="lazy">
+          <img src="./img/2°/Cozinhas/cozinha-planejada-3.webp" alt="" aria-hidden="true" loading="lazy">
+          <img src="./img/2°/Cozinhas/cozinha-planejada-4.webp" alt="" aria-hidden="true" loading="lazy">
+          <img src="./img/2°/Cozinhas/cozinha-planejada-5.webp" alt="" aria-hidden="true" loading="lazy">
+          <img src="./img/2°/Cozinhas/cozinha-planejada-6.webp" alt="" aria-hidden="true" loading="lazy">
+          <img src="./img/2°/Cozinhas/cozinha-planejada-7.webp" alt="" aria-hidden="true" loading="lazy">
         </div>
       </div>
 
       <!-- Fileira 2: Esquerda para Direita -->
       <div class="projetos__marquee">
-        <div class="projetos__marquee-track track-right">
-          <img src="./img/2°/loja-de-moveis.webp" alt="Empresa de móveis planejados Goiânia" loading="lazy">
-          <img src="./img/2°/moveis-bonitos.webp" alt="Móveis planejados luxo Goiânia" loading="lazy">
-          <img src="./img/2°/moveis-lindos.webp" alt="Quarto planejado de alto padrão" loading="lazy">
-          <img src="./img/2°/moveis-planejador.webp" alt="Marcenaria sob medida moderna" loading="lazy">
-          <img src="./img/2°/moveis-planejados2.webp" alt="Móveis de luxo sob medida" loading="lazy">
-          <img src="./img/2°/moveis.webp" alt="Closet planejado moderno" loading="lazy">
-          <img src="./img/2°/planejador-moveis.webp" alt="Home office planejado premium" loading="lazy">
-          <!-- Clone para loop infinito -->
-          <img src="./img/2°/loja-de-moveis.webp" alt="" aria-hidden="true" loading="lazy">
-          <img src="./img/2°/moveis-bonitos.webp" alt="" aria-hidden="true" loading="lazy">
-          <img src="./img/2°/moveis-lindos.webp" alt="" aria-hidden="true" loading="lazy">
-          <img src="./img/2°/moveis-planejador.webp" alt="" aria-hidden="true" loading="lazy">
-          <img src="./img/2°/moveis-planejados2.webp" alt="" aria-hidden="true" loading="lazy">
-          <img src="./img/2°/moveis.webp" alt="" aria-hidden="true" loading="lazy">
-          <img src="./img/2°/planejador-moveis.webp" alt="" aria-hidden="true" loading="lazy">
+        <div class="projetos__marquee-track track-right" id="trackRight">
+          <img src="./img/2°/Cozinhas/cozinha-planejada-8.webp" alt="Cozinha planejada luxo" loading="lazy">
+          <img src="./img/2°/Cozinhas/cozinha-planejada-9.webp" alt="Marcenaria cozinha sob medida" loading="lazy">
+          <img src="./img/2°/Cozinhas/cozinha-planejada-10.webp" alt="Cozinha planejada com ilha" loading="lazy">
+          <img src="./img/2°/Cozinhas/cozinha-planejada-11.webp" alt="Design de cozinha moderna" loading="lazy">
+          <img src="./img/2°/Cozinhas/cozinha-planejada-12.webp" alt="Cozinha planejada de alto padrão" loading="lazy">
+          <img src="./img/2°/Cozinhas/cozinha-planejada-13.webp" alt="Armários planejados" loading="lazy">
+          <img src="./img/2°/Cozinhas/cozinha-planejada-14.webp" alt="Cozinha Master Móveis" loading="lazy">
+          <!-- Clones para loop infinito -->
+          <img src="./img/2°/Cozinhas/cozinha-planejada-8.webp" alt="" aria-hidden="true" loading="lazy">
+          <img src="./img/2°/Cozinhas/cozinha-planejada-9.webp" alt="" aria-hidden="true" loading="lazy">
+          <img src="./img/2°/Cozinhas/cozinha-planejada-10.webp" alt="" aria-hidden="true" loading="lazy">
+          <img src="./img/2°/Cozinhas/cozinha-planejada-11.webp" alt="" aria-hidden="true" loading="lazy">
+          <img src="./img/2°/Cozinhas/cozinha-planejada-12.webp" alt="" aria-hidden="true" loading="lazy">
+          <img src="./img/2°/Cozinhas/cozinha-planejada-13.webp" alt="" aria-hidden="true" loading="lazy">
+          <img src="./img/2°/Cozinhas/cozinha-planejada-14.webp" alt="" aria-hidden="true" loading="lazy">
         </div>
       </div>
     </div>
 
-    <div class="projetos__footer">
+    <div class="projetos__footer" style="display: flex; gap: 1.2rem; justify-content: center; flex-wrap: wrap; margin-top: 3rem;">
+      <a href="resultados.html" class="projetos__btn" style="background: linear-gradient(135deg, var(--marrom), var(--bege)); color: #fff; border-color: transparent; box-shadow: 0 6px 20px rgba(160, 119, 80, 0.3);">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+        Ver Galeria de Resultados Completa
+      </a>
       <a href="https://www.instagram.com/masterambientesplanejados/" class="projetos__btn" target="_blank" rel="noopener">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
@@ -430,8 +458,8 @@
           Quem Somos
         </div>
         <h2 class="sobre__title">Mais de 20 Anos Criando <span>Ambientes Que Transformam Vidas</span></h2>
-        <p class="sobre__text">A Master Ambientes Planejados nasceu do amor pela arquitetura e pelo desejo de transformar espaços em Goiânia. Ao longo de mais de duas décadas, já ajudamos centenas de famílias e empresas a terem ambientes que realmente fazem sentido — bonitos, organizados e feitos sob medida pra rotina de cada um.</p>
-        <p class="sobre__text">Aqui, nenhum projeto é igual ao outro. A gente ouve o que você precisa, desenha tudo em 3D pra você visualizar antes, e acompanha de perto da fabricação até a montagem final. Atendemos Goiânia, Aparecida de Goiânia, Trindade, Senador Canedo e toda a região metropolitana.</p>
+        <p class="sobre__text">A Master Ambientes Planejados nasceu do amor pela arquitetura e pelo desejo de transformar espaços em Goiânia. Ao longo de mais de duas décadas, já ajudamos centenas de famílias e empresas a terem ambientes que realmente fazem sentido — bonitos, organizados e feitos sob medida pra rotina de cada um, atuando fortemente em regiões nobres como o <strong>Setor Bueno</strong>, <strong>Setor Marista</strong>, <strong>Jardim Goiás</strong> e <strong>Setor Oeste</strong>.</p>
+        <p class="sobre__text">Aqui, nenhum projeto é igual ao outro. A gente ouve o que você precisa, desenha tudo em 3D pra você visualizar antes, e acompanha de perto da fabricação até a montagem final. Somos a principal referência para quem procura <strong>marcenaria de alto padrão em Goiânia</strong>, móveis para apartamento ou projetos comerciais. Atendemos Goiânia, Aparecida de Goiânia, Trindade, Senador Canedo e toda a região metropolitana.</p>
 
         <!-- Estatísticas -->
         <div class="sobre__stats">
@@ -587,6 +615,7 @@
       <div class="footer__links">
         <h4>Navegação</h4>
         <a href="index.html">Início</a>
+        <a href="resultados.html">Resultados</a>
         <a href="servicos.html">Serviços</a>
         <a href="sobre.html">Sobre</a>
         <a href="orcamento.html">Orçamento</a>
@@ -677,7 +706,7 @@
     ],
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
-      "name": "Serviços de Móveis Planejados",
+      "name": "Serviços de Móveis Planejados e Arquitetura",
       "itemListElement": [
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cozinha Planejada em Goiânia" } },
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Closet Planejado Sob Medida" } },
@@ -686,6 +715,9 @@
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Banheiro Planejado" } },
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Área Gourmet Planejada" } },
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Ambientes Corporativos" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Projeto de Arquitetura de Casas em Goiânia" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Design de Interiores" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Decoração Personalizada" } },
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Projeto 3D Personalizado" } }
       ]
     },

@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Orçamento Grátis — Móveis Planejados em Goiânia | Master Ambientes</title>
   <meta name="description" content="Solicite seu orçamento grátis de móveis planejados em Goiânia. Preencha o formulário e receba atendimento personalizado via WhatsApp. Sem compromisso!">
+  <meta name="keywords" content="móveis planejados em goiânia, marcenaria em goiânia, móveis sob medida goiânia, armários planejados goiânia, cozinha planejada goiânia, closet planejado goiânia, quarto planejado goiânia, marcenaria de alto padrão, arquitetura de interiores goiânia, móveis para apartamento goiânia, móveis planejados aparecida de goiânia, design de interiores goiânia, projetos 3d marcenaria">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://masterambientesplanejados.com.br/orcamento.html">
   <meta name="geo.region" content="BR-GO">
@@ -29,10 +30,23 @@
     <a href="index.html" class="navbar__logo"><img src="./img/logo1.webp" alt="Master Móveis Logo" width="150" height="50"></a>
     <div class="navbar__links" id="navLinks">
       <a href="index.html">Início</a>
+      <a href="resultados.html">Resultados</a>
       <a href="servicos.html">Serviços</a>
       <a href="sobre.html">Sobre</a>
       <a href="orcamento.html" class="active">Orçamento</a>
-      <a href="blog.html">Blog</a>
+
+      <!-- Dropdown Conteúdo (Blog & FAQs) -->
+      <div class="navbar__dropdown" id="navDropdown">
+        <a class="navbar__dropdown-toggle" role="button" tabindex="0">
+          Conteúdo 
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </a>
+        <div class="navbar__dropdown-menu">
+          <a href="blog.html">Blog</a>
+          <a href="faqs.html">Perguntas (FAQs)</a>
+        </div>
+      </div>
+
       <a href="https://www.instagram.com/masterambientesplanejados/" class="navbar__instagram" target="_blank" rel="noopener" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></a>
       <a href="orcamento.html" class="navbar__cta">Faça Seu Orçamento</a>
     </div>
@@ -140,7 +154,17 @@
     // Navbar
     const hamburger=document.getElementById('hamburger'),navLinks=document.getElementById('navLinks');
     hamburger.addEventListener('click',()=>{hamburger.classList.toggle('active');navLinks.classList.toggle('open')});
-    navLinks.querySelectorAll('a').forEach(l=>l.addEventListener('click',()=>{hamburger.classList.remove('active');navLinks.classList.remove('open')}));
+    navLinks.querySelectorAll('a:not(.navbar__dropdown-toggle)').forEach(l=>l.addEventListener('click',()=>{hamburger.classList.remove('active');navLinks.classList.remove('open')}));
+
+    // Toggle dropdown no mobile
+    const navDropdown = document.getElementById('navDropdown');
+    const dropdownToggle = navDropdown.querySelector('.navbar__dropdown-toggle');
+    dropdownToggle.addEventListener('click', (e) => {
+      if (window.innerWidth <= 991) {
+        e.preventDefault();
+        navDropdown.classList.toggle('open');
+      }
+    });
 
     // Form → WhatsApp
     document.getElementById('orcamentoForm').addEventListener('submit',function(e){

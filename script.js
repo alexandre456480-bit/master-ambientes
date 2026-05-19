@@ -19,13 +19,25 @@ document.addEventListener('DOMContentLoaded', () => {
     navLinks.classList.toggle('open');
   });
 
-  // Fechar menu ao clicar em link
-  navLinks.querySelectorAll('a').forEach(link => {
+  // Fechar menu ao clicar em link (exceto o dropdown toggle)
+  navLinks.querySelectorAll('a:not(.navbar__dropdown-toggle)').forEach(link => {
     link.addEventListener('click', () => {
       hamburger.classList.remove('active');
       navLinks.classList.remove('open');
     });
   });
+
+  // Dropdown Mobile Toggle
+  const navDropdown = document.getElementById('navDropdown');
+  if (navDropdown) {
+    const dropdownToggle = navDropdown.querySelector('.navbar__dropdown-toggle');
+    dropdownToggle.addEventListener('click', (e) => {
+      if (window.innerWidth <= 991) {
+        e.preventDefault();
+        navDropdown.classList.toggle('open');
+      }
+    });
+  }
 
   // ========== HERO SLIDESHOW ==========
   const slides = document.querySelectorAll('.hero__slide');
@@ -331,5 +343,182 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.5 });
 
   statNumbers.forEach(el => counterObserver.observe(el));
+
+  // ========== FILTROS SEÇÃO PROJETOS ==========
+  const filterBtns = document.querySelectorAll('.projetos__filter-btn');
+  const trackLeft = document.getElementById('trackLeft');
+  const trackRight = document.getElementById('trackRight');
+
+  const projetosImgs = {
+    cozinhas: {
+      left: [
+        './img/2°/Cozinhas/cozinha-planejada-1.webp',
+        './img/2°/Cozinhas/cozinha-planejada-2.webp',
+        './img/2°/Cozinhas/cozinha-planejada-3.webp',
+        './img/2°/Cozinhas/cozinha-planejada-4.webp',
+        './img/2°/Cozinhas/cozinha-planejada-5.webp',
+        './img/2°/Cozinhas/cozinha-planejada-6.webp',
+        './img/2°/Cozinhas/cozinha-planejada-7.webp'
+      ],
+      right: [
+        './img/2°/Cozinhas/cozinha-planejada-8.webp',
+        './img/2°/Cozinhas/cozinha-planejada-9.webp',
+        './img/2°/Cozinhas/cozinha-planejada-10.webp',
+        './img/2°/Cozinhas/cozinha-planejada-11.webp',
+        './img/2°/Cozinhas/cozinha-planejada-12.webp',
+        './img/2°/Cozinhas/cozinha-planejada-13.webp',
+        './img/2°/Cozinhas/cozinha-planejada-14.webp'
+      ]
+    },
+    quartos: {
+      left: [
+        './img/2°/Quartos e Closet/quarto-e-closet-planejado-1.webp',
+        './img/2°/Quartos e Closet/quarto-e-closet-planejado-2.webp',
+        './img/2°/Quartos e Closet/quarto-e-closet-planejado-3.webp',
+        './img/2°/Quartos e Closet/quarto-e-closet-planejado-4.webp',
+        './img/2°/Quartos e Closet/quarto-e-closet-planejado-5.webp',
+        './img/2°/Quartos e Closet/quarto-e-closet-planejado-6.webp',
+        './img/2°/Quartos e Closet/quarto-e-closet-planejado-7.webp'
+      ],
+      right: [
+        './img/2°/Quartos e Closet/quarto-e-closet-planejado-8.webp',
+        './img/2°/Quartos e Closet/quarto-e-closet-planejado-9.webp',
+        './img/2°/Quartos e Closet/quarto-e-closet-planejado-10.webp',
+        './img/2°/Quartos e Closet/quarto-e-closet-planejado-11.webp',
+        './img/2°/Quartos e Closet/quarto-e-closet-planejado-12.webp',
+        './img/2°/Quartos e Closet/quarto-e-closet-planejado-13.webp',
+        './img/2°/Quartos e Closet/quarto-e-closet-planejado-14.webp'
+      ]
+    },
+    banheiros: {
+      left: [
+        './img/2°/Banheiros/banheiro-planejado-1.webp',
+        './img/2°/Banheiros/banheiro-planejado-2.webp',
+        './img/2°/Banheiros/banheiro-planejado-3.webp',
+        './img/2°/Banheiros/banheiro-planejado-4.webp',
+        './img/2°/Banheiros/banheiro-planejado-5.webp',
+        './img/2°/Banheiros/banheiro-planejado-6.webp',
+        './img/2°/Banheiros/banheiro-planejado-7.webp'
+      ],
+      right: [
+        './img/2°/Banheiros/banheiro-planejado-8.webp',
+        './img/2°/Banheiros/banheiro-planejado-9.webp',
+        './img/2°/Banheiros/banheiro-planejado-10.webp',
+        './img/2°/Banheiros/banheiro-planejado-11.webp',
+        './img/2°/Banheiros/banheiro-planejado-12.webp',
+        './img/2°/Banheiros/banheiro-planejado-13.webp',
+        './img/2°/Banheiros/banheiro-planejado-14.webp'
+      ]
+    },
+    salas: {
+      left: [
+        './img/2°/Salas/sala-planejada-1.webp',
+        './img/2°/Salas/sala-planejada-2.webp',
+        './img/2°/Salas/sala-planejada-3.webp',
+        './img/2°/Salas/sala-planejada-4.webp',
+        './img/2°/Salas/sala-planejada-5.webp',
+        './img/2°/Salas/sala-planejada-6.webp',
+        './img/2°/Salas/sala-planejada-7.webp'
+      ],
+      right: [
+        './img/2°/Salas/sala-planejada-8.webp',
+        './img/2°/Salas/sala-planejada-9.webp',
+        './img/2°/Salas/sala-planejada-10.webp',
+        './img/2°/Salas/sala-planejada-11.webp',
+        './img/2°/Salas/sala-planejada-12.webp',
+        './img/2°/Salas/sala-planejada-13.webp',
+        './img/2°/Salas/sala-planejada-14.webp'
+      ]
+    },
+    diversos: {
+      left: [
+        './img/2°/Diversos/moveis-diversos-planejados-1.webp',
+        './img/2°/Diversos/moveis-diversos-planejados-2.webp',
+        './img/2°/Diversos/moveis-diversos-planejados-3.webp',
+        './img/2°/Diversos/moveis-diversos-planejados-4.webp',
+        './img/2°/Diversos/moveis-diversos-planejados-5.webp',
+        './img/2°/Diversos/moveis-diversos-planejados-6.webp',
+        './img/2°/Diversos/moveis-diversos-planejados-7.webp'
+      ],
+      right: [
+        './img/2°/Diversos/moveis-diversos-planejados-8.webp',
+        './img/2°/Diversos/moveis-diversos-planejados-9.webp',
+        './img/2°/Diversos/moveis-diversos-planejados-10.webp',
+        './img/2°/Diversos/moveis-diversos-planejados-11.webp',
+        './img/2°/Diversos/moveis-diversos-planejados-12.webp',
+        './img/2°/Diversos/moveis-diversos-planejados-13.webp',
+        './img/2°/Diversos/moveis-diversos-planejados-14.webp'
+      ]
+    }
+  };
+
+  function updateMarquee(filter) {
+    if (!trackLeft || !trackRight) return;
+
+    // Adiciona fade-out suave
+    trackLeft.classList.add('fade-out');
+    trackRight.classList.add('fade-out');
+
+    setTimeout(() => {
+      const data = projetosImgs[filter];
+      if (!data) return;
+      
+      // Limpa os tracks
+      trackLeft.innerHTML = '';
+      trackRight.innerHTML = '';
+
+      // Popula Track Left (imagens + clones)
+      data.left.forEach((src, idx) => {
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = `${filter} planejado sob medida ${idx + 1}`;
+        img.loading = 'lazy';
+        trackLeft.appendChild(img);
+      });
+      // Clones
+      data.left.forEach((src) => {
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = '';
+        img.setAttribute('aria-hidden', 'true');
+        img.loading = 'lazy';
+        trackLeft.appendChild(img);
+      });
+
+      // Popula Track Right (imagens + clones)
+      data.right.forEach((src, idx) => {
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = `${filter} de alto padrão ${idx + 1}`;
+        img.loading = 'lazy';
+        trackRight.appendChild(img);
+      });
+      // Clones
+      data.right.forEach((src) => {
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = '';
+        img.setAttribute('aria-hidden', 'true');
+        img.loading = 'lazy';
+        trackRight.appendChild(img);
+      });
+
+      // Remove fade-out (fade-in automático)
+      trackLeft.classList.remove('fade-out');
+      trackRight.classList.remove('fade-out');
+    }, 400);
+  }
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (btn.classList.contains('active')) return;
+
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filter = btn.dataset.filter;
+      updateMarquee(filter);
+    });
+  });
 
 });

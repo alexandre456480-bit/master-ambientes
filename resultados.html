@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Nossos Resultados — Master Ambientes Planejados | Portfólio Goiânia</title>
+  <meta name="description" content="Explore a galeria completa de projetos entregues pela Master Ambientes Planejados em Goiânia: cozinhas, closets, banheiros, salas e marcenaria sob medida premium.">
+  <meta name="keywords" content="móveis planejados em goiânia, marcenaria em goiânia, portfólio marcenaria goiânia, cozinhas planejadas goiânia, closet sob medida goiânia, banheiros planejados">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://masterambientesplanejados.com.br/resultados.html">
+  <meta name="theme-color" content="#1a1612">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" media="print" onload="this.media='all'">
+
+  <!-- CSS principal e de páginas internas -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="pages.css">
+
+  <style>
+    /* Estilos Premium da Galeria de Resultados */
+    .gallery-section {
+      padding: 5rem 0 8rem;
+      background: var(--preto);
+      color: var(--branco);
+      min-height: 80vh;
+    }
+
+    .gallery-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 4%;
+    }
+
+    /* Filtros da Galeria */
+    .gallery-filters {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-bottom: 3.5rem;
+      position: relative;
+      z-index: 10;
+    }
+
+    .gallery-filter-btn {
+      background: rgba(255, 255, 255, 0.02);
+      color: rgba(250, 248, 245, 0.65);
+      border: 1px solid rgba(250, 248, 245, 0.1);
+      padding: 0.8rem 1.8rem;
+      border-radius: 50px;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      letter-spacing: 0.03em;
+      backdrop-filter: blur(5px);
+    }
+
+    .gallery-filter-btn:hover {
+      color: var(--branco-puro);
+      border-color: rgba(196, 169, 125, 0.4);
+      background: rgba(196, 169, 125, 0.05);
+      transform: translateY(-2px);
+    }
+
+    .gallery-filter-btn.active {
+      background: linear-gradient(135deg, var(--marrom), var(--bege));
+      color: var(--branco-puro);
+      border-color: transparent;
+      box-shadow: 0 6px 20px rgba(160, 119, 80, 0.3);
+    }
+
+    /* Grid da Galeria */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 4rem;
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      aspect-ratio: 16 / 11;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(196, 169, 125, 0.05);
+      cursor: pointer;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s ease;
+      opacity: 0;
+      transform: scale(0.95) translateY(15px);
+      animation: revealItem 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes revealItem {
+      to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-5px);
+      border-color: rgba(196, 169, 125, 0.3);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease, filter 0.4s ease;
+      filter: brightness(0.95);
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+      filter: brightness(1.05);
+    }
+
+    /* Overlay no Card */
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, rgba(26, 22, 18, 0.85) 0%, rgba(26, 22, 18, 0.2) 60%, transparent 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.5rem;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      z-index: 2;
+    }
+
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+
+    .gallery-cat {
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--bege);
+      margin-bottom: 0.4rem;
+      transform: translateY(10px);
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .gallery-item:hover .gallery-cat {
+      transform: translateY(0);
+    }
+
+    .gallery-zoom-icon {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(26, 22, 18, 0.85);
+      border: 1px solid rgba(196, 169, 125, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transform: scale(0.8);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 3;
+    }
+
+    .gallery-item:hover .gallery-zoom-icon {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .gallery-zoom-icon svg {
+      width: 16px;
+      height: 16px;
+      color: var(--bege);
+    }
+
+    /* Botão Carregar Mais */
+    .gallery-more-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1.1rem 2.8rem;
+      background: transparent;
+      color: var(--bege);
+      border: 1px solid var(--bege);
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 60px;
+      cursor: pointer;
+      transition: var(--transition);
+      margin: 0 auto;
+    }
+
+    .gallery-more-btn:hover {
+      background: var(--bege);
+      color: var(--preto);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(196, 169, 125, 0.2);
+    }
+
+    .gallery-more-btn.hidden {
+      display: none;
+    }
+
+    .gallery-actions {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    /* Lightbox Modal */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(14, 12, 10, 0.95);
+      backdrop-filter: blur(12px);
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
+
+    .lightbox.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .lightbox-content {
+      position: relative;
+      max-width: 85vw;
+      max-height: 80vh;
+      transform: scale(0.95);
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .lightbox.active .lightbox-content {
+      transform: scale(1);
+    }
+
+    .lightbox-content img {
+      max-width: 100%;
+      max-height: 80vh;
+      border-radius: 12px;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      display: block;
+      object-fit: contain;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: -3.5rem;
+      right: 0;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 2.2rem;
+      cursor: pointer;
+      opacity: 0.6;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .lightbox-close:hover {
+      opacity: 1;
+      transform: rotate(90deg);
+    }
+
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(26, 22, 18, 0.8);
+      border: 1px solid rgba(196, 169, 125, 0.2);
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      z-index: 10002;
+    }
+
+    .lightbox-nav:hover {
+      background: var(--bege);
+      color: var(--preto);
+      border-color: transparent;
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .lightbox-nav--prev {
+      left: -5rem;
+    }
+
+    .lightbox-nav--next {
+      right: -5rem;
+    }
+
+    /* Responsivo Galeria */
+    @media (max-width: 1200px) {
+      .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 991px) {
+      .lightbox-nav {
+        width: 44px;
+        height: 44px;
+      }
+      .lightbox-nav--prev { left: -3.5rem; }
+      .lightbox-nav--next { right: -3.5rem; }
+    }
+
+    @media (max-width: 768px) {
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+      }
+      .lightbox-nav {
+        display: none; /* Em telas muito pequenas navegamos por swipe/clicks no modal ou ocultamos */
+      }
+      .lightbox-content {
+        max-width: 92vw;
+      }
+      .lightbox-close {
+        top: -3rem;
+        right: 0.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+      .gallery-filters {
+        gap: 0.5rem;
+      }
+      .gallery-filter-btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar scrolled" id="navbar" aria-label="Navegação principal">
+    <a href="index.html" class="navbar__logo">
+      <img src="./img/logo1.webp" alt="Master Móveis Logo" width="150" height="50">
+    </a>
+    <div class="navbar__links" id="navLinks">
+      <a href="index.html">Início</a>
+      <a href="resultados.html" class="active">Resultados</a>
+      <a href="servicos.html">Serviços</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="orcamento.html">Orçamento</a>
+
+      <!-- Dropdown Conteúdo (Blog & FAQs) -->
+      <div class="navbar__dropdown" id="navDropdown">
+        <a class="navbar__dropdown-toggle" role="button" tabindex="0">
+          Conteúdo 
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </a>
+        <div class="navbar__dropdown-menu">
+          <a href="blog.html">Blog</a>
+          <a href="faqs.html">Perguntas (FAQs)</a>
+        </div>
+      </div>
+
+      <a href="https://www.instagram.com/masterambientesplanejados/" class="navbar__instagram" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+      </a>
+      <a href="orcamento.html" class="navbar__cta">Faça Seu Orçamento</a>
+    </div>
+    <div class="navbar__hamburger" id="hamburger" role="button" tabindex="0">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- ========== HERO RESULTADOS ========== -->
+  <section class="page-hero page-hero--short">
+    <div class="page-hero__bg">
+      <img src="./img/2°/Cozinhas/cozinha-planejada-1.webp" alt="Projetos de alto padrão Master Ambientes Planejados" fetchpriority="high">
+    </div>
+    <div class="page-hero__overlay"></div>
+    <div class="page-hero__content">
+      <div class="page-hero__badge"><span class="page-hero__badge-dot"></span>Portfólio Real</div>
+      <h1>Nossos <span>Resultados</span></h1>
+      <p>A excelência sob medida. Veja fotos reais de ambientes residenciais e comerciais projetados e instalados por nossa equipe.</p>
+    </div>
+  </section>
+
+  <!-- ========== GALERIA DE RESULTADOS ========== -->
+  <section class="gallery-section">
+    <div class="gallery-container">
+
+      <!-- Filtros Dinâmicos -->
+      <div class="gallery-filters">
+        <button class="gallery-filter-btn active" data-filter="todos">Todos</button>
+        <button class="gallery-filter-btn" data-filter="cozinhas">Cozinhas</button>
+        <button class="gallery-filter-btn" data-filter="quartos">Quartos e Closet</button>
+        <button class="gallery-filter-btn" data-filter="banheiros">Banheiros</button>
+        <button class="gallery-filter-btn" data-filter="salas">Salas</button>
+        <button class="gallery-filter-btn" data-filter="diversos">Diversos</button>
+      </div>
+
+      <!-- Grid de Fotos -->
+      <div class="gallery-grid" id="galleryGrid">
+        <!-- Renderizado dinamicamente via JS para otimização extrema de tokens -->
+      </div>
+
+      <!-- Ações (Carregar Mais) -->
+      <div class="gallery-actions">
+        <button class="gallery-more-btn" id="loadMoreBtn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+          Carregar Mais Resultados
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========== LIGHTBOX MODAL ========== -->
+  <div class="lightbox" id="lightboxModal">
+    <div class="lightbox-content">
+      <button class="lightbox-close" id="lightboxClose" aria-label="Fechar">&times;</button>
+      <img src="" alt="" id="lightboxImg">
+      <button class="lightbox-nav lightbox-nav--prev" id="lightboxPrev" aria-label="Anterior">&#10094;</button>
+      <button class="lightbox-nav lightbox-nav--next" id="lightboxNext" aria-label="Próximo">&#10095;</button>
+    </div>
+  </div>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="footer__container">
+      <div class="footer__brand">
+        <img src="./img/logo1.webp" alt="Master Móveis Logo" width="140" height="46" loading="lazy">
+        <p>Há mais de 20 anos transformando casas e empresas em Goiânia.</p>
+      </div>
+      <div class="footer__links">
+        <h4>Navegação</h4>
+        <a href="index.html">Início</a>
+        <a href="resultados.html">Resultados</a>
+        <a href="servicos.html">Serviços</a>
+        <a href="sobre.html">Sobre</a>
+        <a href="orcamento.html">Orçamento</a>
+        <a href="blog.html">Blog</a>
+      </div>
+      <div class="footer__links">
+        <h4>Contato</h4>
+        <a href="https://wa.me/556284119210">62 8411-9210</a>
+        <a href="mailto:ademirsperandiojunior@gmail.com">ademirsperandiojunior@gmail.com</a>
+        <span>Goiânia — GO</span>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>&copy; 2024 Master Ambientes Planejados. Todos os direitos reservados. | Criado por <a href="https://webgyn.digital" target="_blank" rel="noopener">webgyn.digital</a></p>
+    </div>
+  </footer>
+
+  <!-- ========== WHATSAPP FLUTUANTE ========== -->
+  <a href="https://wa.me/556284119210?text=Olá!%20Gostaria%20de%20fazer%20um%20orçamento." class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M16.004 0h-.008C7.174 0 0 7.176 0 16.004c0 3.5 1.128 6.744 3.046 9.378L1.054 31.29l6.118-1.958c2.518 1.682 5.52 2.664 8.832 2.664C24.826 31.996 32 24.82 32 16.004S24.826 0 16.004 0zm9.508 22.618c-.396 1.116-2.296 2.076-3.202 2.208-.82.118-1.856.166-2.994-.188a27.24 27.24 0 0 1-2.71-1.002c-4.772-2.06-7.888-6.896-8.128-7.218-.23-.318-1.904-2.536-1.904-4.836s1.206-3.43 1.634-3.898c.43-.468.936-.586 1.248-.586.312 0 .624.002.898.016.288.016.674-.11 1.054.804.396.95 1.346 3.29 1.462 3.528.118.238.196.516.04.832-.158.318-.238.516-.468.794-.232.278-.488.622-.696.834-.232.238-.474.496-.204.972.27.468 1.202 1.982 2.582 3.212 1.774 1.582 3.27 2.072 3.732 2.31.468.238.74.198 1.012-.118.278-.318 1.178-1.374 1.492-1.844.312-.468.624-.39 1.054-.234.432.158 2.742 1.294 3.21 1.53.468.238.78.354.898.55.116.198.116 1.136-.28 2.252z"/></svg>
+  </a>
+
+  <!-- ========== SCRIPTS ========== -->
+  <script>
+    // Gerenciador do Menu Sanduíche Mobile
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navLinks.classList.toggle('open');
+    });
+
+    // Toggle dropdown no mobile
+    const navDropdown = document.getElementById('navDropdown');
+    const dropdownToggle = navDropdown.querySelector('.navbar__dropdown-toggle');
+    dropdownToggle.addEventListener('click', (e) => {
+      if (window.innerWidth <= 991) {
+        e.preventDefault();
+        navDropdown.classList.toggle('open');
+      }
+    });
+
+    // LISTA COMPLETA DE FOTOS OTINIMIZADAS DO DIRETÓRIO img/2°
+    const allImages = [
+      // COZINHAS
+      { src: './img/2°/Cozinhas/cozinha-planejada-1.webp', cat: 'cozinhas', label: 'Cozinha' },
+      { src: './img/2°/Cozinhas/cozinha-planejada-2.webp', cat: 'cozinhas', label: 'Cozinha' },
+      { src: './img/2°/Cozinhas/cozinha-planejada-3.webp', cat: 'cozinhas', label: 'Cozinha' },
+      { src: './img/2°/Cozinhas/cozinha-planejada-4.webp', cat: 'cozinhas', label: 'Cozinha' },
+      { src: './img/2°/Cozinhas/cozinha-planejada-5.webp', cat: 'cozinhas', label: 'Cozinha' },
+      { src: './img/2°/Cozinhas/cozinha-planejada-6.webp', cat: 'cozinhas', label: 'Cozinha' },
+      { src: './img/2°/Cozinhas/cozinha-planejada-7.webp', cat: 'cozinhas', label: 'Cozinha' },
+      { src: './img/2°/Cozinhas/cozinha-planejada-8.webp', cat: 'cozinhas', label: 'Cozinha' },
+      { src: './img/2°/Cozinhas/cozinha-planejada-9.webp', cat: 'cozinhas', label: 'Cozinha' },
+      { src: './img/2°/Cozinhas/cozinha-planejada-10.webp', cat: 'cozinhas', label: 'Cozinha' },
+      { src: './img/2°/Cozinhas/cozinha-planejada-11.webp', cat: 'cozinhas', label: 'Cozinha' },
+      { src: './img/2°/Cozinhas/cozinha-planejada-12.webp', cat: 'cozinhas', label: 'Cozinha' },
+      { src: './img/2°/Cozinhas/cozinha-planejada-13.webp', cat: 'cozinhas', label: 'Cozinha' },
+      { src: './img/2°/Cozinhas/cozinha-planejada-14.webp', cat: 'cozinhas', label: 'Cozinha' },
+      { src: './img/2°/Cozinhas/cozinha-planejada-15.webp', cat: 'cozinhas', label: 'Cozinha' },
+      { src: './img/2°/Cozinhas/area-goumert.webp', cat: 'cozinhas', label: 'Área Gourmet' },
+      { src: './img/2°/Cozinhas/design-ambiente.webp', cat: 'cozinhas', label: 'Cozinha sob Medida' },
+      { src: './img/2°/Cozinhas/moveis-planejados2.webp', cat: 'cozinhas', label: 'Cozinha Premium' },
+      { src: './img/2°/Cozinhas/planejador-moveis.webp', cat: 'cozinhas', label: 'Cozinha Integrada' },
+
+      // QUARTOS E CLOSET
+      { src: './img/2°/Quartos e Closet/quarto-e-closet-planejado-1.webp', cat: 'quartos', label: 'Quarto & Closet' },
+      { src: './img/2°/Quartos e Closet/quarto-e-closet-planejado-2.webp', cat: 'quartos', label: 'Quarto & Closet' },
+      { src: './img/2°/Quartos e Closet/quarto-e-closet-planejado-3.webp', cat: 'quartos', label: 'Quarto & Closet' },
+      { src: './img/2°/Quartos e Closet/quarto-e-closet-planejado-4.webp', cat: 'quartos', label: 'Quarto & Closet' },
+      { src: './img/2°/Quartos e Closet/quarto-e-closet-planejado-5.webp', cat: 'quartos', label: 'Quarto & Closet' },
+      { src: './img/2°/Quartos e Closet/quarto-e-closet-planejado-6.webp', cat: 'quartos', label: 'Quarto & Closet' },
+      { src: './img/2°/Quartos e Closet/quarto-e-closet-planejado-7.webp', cat: 'quartos', label: 'Quarto & Closet' },
+      { src: './img/2°/Quartos e Closet/quarto-e-closet-planejado-8.webp', cat: 'quartos', label: 'Quarto & Closet' },
+      { src: './img/2°/Quartos e Closet/quarto-e-closet-planejado-9.webp', cat: 'quartos', label: 'Quarto & Closet' },
+      { src: './img/2°/Quartos e Closet/quarto-e-closet-planejado-10.webp', cat: 'quartos', label: 'Quarto & Closet' },
+      { src: './img/2°/Quartos e Closet/quarto-e-closet-planejado-11.webp', cat: 'quartos', label: 'Quarto & Closet' },
+      { src: './img/2°/Quartos e Closet/quarto-e-closet-planejado-12.webp', cat: 'quartos', label: 'Quarto & Closet' },
+      { src: './img/2°/Quartos e Closet/quarto-e-closet-planejado-13.webp', cat: 'quartos', label: 'Quarto & Closet' },
+      { src: './img/2°/Quartos e Closet/quarto-e-closet-planejado-14.webp', cat: 'quartos', label: 'Quarto & Closet' },
+      { src: './img/2°/Quartos e Closet/quarto-e-closet-planejado-15.webp', cat: 'quartos', label: 'Quarto & Closet' },
+      { src: './img/2°/Quartos e Closet/quarto-e-closet-planejado-16.webp', cat: 'quartos', label: 'Quarto & Closet' },
+      { src: './img/2°/Quartos e Closet/quarto-e-closet-planejado-17.webp', cat: 'quartos', label: 'Quarto & Closet' },
+      { src: './img/2°/Quartos e Closet/quarto-e-closet-planejado-18.webp', cat: 'quartos', label: 'Quarto & Closet' },
+      { src: './img/2°/Quartos e Closet/quarto-e-closet-planejado-19.webp', cat: 'quartos', label: 'Quarto & Closet' },
+      { src: './img/2°/Quartos e Closet/quarto-e-closet-planejado-20.webp', cat: 'quartos', label: 'Quarto & Closet' },
+      { src: './img/2°/Quartos e Closet/quarto-e-closet-planejado-21.webp', cat: 'quartos', label: 'Quarto & Closet' },
+      { src: './img/2°/Quartos e Closet/quarto-e-closet-planejado-22.webp', cat: 'quartos', label: 'Quarto & Closet' },
+      { src: './img/2°/Quartos e Closet/quarto-e-closet-planejado-23.webp', cat: 'quartos', label: 'Quarto & Closet' },
+      { src: './img/2°/Quartos e Closet/quarto-e-closet-planejado-24.webp', cat: 'quartos', label: 'Quarto & Closet' },
+      { src: './img/2°/Quartos e Closet/quarto-e-closet-planejado-25.webp', cat: 'quartos', label: 'Quarto & Closet' },
+      { src: './img/2°/Quartos e Closet/quarto-e-closet-planejado-26.webp', cat: 'quartos', label: 'Quarto & Closet' },
+      { src: './img/2°/Quartos e Closet/cozinha-planejada4.webp', cat: 'quartos', label: 'Closet e Nichos' },
+      { src: './img/2°/Quartos e Closet/design-de-moveis.webp', cat: 'quartos', label: 'Closet de Alto Padrão' },
+      { src: './img/2°/Quartos e Closet/loja-de-moveis.webp', cat: 'quartos', label: 'Quarto Integrado' },
+      { src: './img/2°/Quartos e Closet/moveis-planejador.webp', cat: 'quartos', label: 'Closet Modulado' },
+
+      // BANHEIROS
+      { src: './img/2°/Banheiros/banheiro-planejado-1.webp', cat: 'banheiros', label: 'Banheiro' },
+      { src: './img/2°/Banheiros/banheiro-planejado-2.webp', cat: 'banheiros', label: 'Banheiro' },
+      { src: './img/2°/Banheiros/banheiro-planejado-3.webp', cat: 'banheiros', label: 'Banheiro' },
+      { src: './img/2°/Banheiros/banheiro-planejado-4.webp', cat: 'banheiros', label: 'Banheiro' },
+      { src: './img/2°/Banheiros/banheiro-planejado-5.webp', cat: 'banheiros', label: 'Banheiro' },
+      { src: './img/2°/Banheiros/banheiro-planejado-6.webp', cat: 'banheiros', label: 'Banheiro' },
+      { src: './img/2°/Banheiros/banheiro-planejado-7.webp', cat: 'banheiros', label: 'Banheiro' },
+      { src: './img/2°/Banheiros/banheiro-planejado-8.webp', cat: 'banheiros', label: 'Banheiro' },
+      { src: './img/2°/Banheiros/banheiro-planejado-9.webp', cat: 'banheiros', label: 'Banheiro' },
+      { src: './img/2°/Banheiros/banheiro-planejado-10.webp', cat: 'banheiros', label: 'Banheiro' },
+      { src: './img/2°/Banheiros/banheiro-planejado-11.webp', cat: 'banheiros', label: 'Banheiro' },
+      { src: './img/2°/Banheiros/banheiro-planejado-12.webp', cat: 'banheiros', label: 'Banheiro' },
+      { src: './img/2°/Banheiros/banheiro-planejado-13.webp', cat: 'banheiros', label: 'Banheiro' },
+      { src: './img/2°/Banheiros/banheiro-planejado-14.webp', cat: 'banheiros', label: 'Banheiro' },
+      { src: './img/2°/Banheiros/ambiente-planejado.webp', cat: 'banheiros', label: 'Banheiro Sob Medida' },
+      { src: './img/2°/Banheiros/moveis-lindos.webp', cat: 'banheiros', label: 'Lavabo Luxo' },
+
+      // SALAS
+      { src: './img/2°/Salas/sala-planejada-1.webp', cat: 'salas', label: 'Sala' },
+      { src: './img/2°/Salas/sala-planejada-2.webp', cat: 'salas', label: 'Sala' },
+      { src: './img/2°/Salas/sala-planejada-3.webp', cat: 'salas', label: 'Sala' },
+      { src: './img/2°/Salas/sala-planejada-4.webp', cat: 'salas', label: 'Sala' },
+      { src: './img/2°/Salas/sala-planejada-5.webp', cat: 'salas', label: 'Sala' },
+      { src: './img/2°/Salas/sala-planejada-6.webp', cat: 'salas', label: 'Sala' },
+      { src: './img/2°/Salas/sala-planejada-7.webp', cat: 'salas', label: 'Sala' },
+      { src: './img/2°/Salas/sala-planejada-8.webp', cat: 'salas', label: 'Sala' },
+      { src: './img/2°/Salas/sala-planejada-9.webp', cat: 'salas', label: 'Sala' },
+      { src: './img/2°/Salas/sala-planejada-10.webp', cat: 'salas', label: 'Sala' },
+      { src: './img/2°/Salas/sala-planejada-11.webp', cat: 'salas', label: 'Sala' },
+      { src: './img/2°/Salas/sala-planejada-12.webp', cat: 'salas', label: 'Sala' },
+      { src: './img/2°/Salas/sala-planejada-13.webp', cat: 'salas', label: 'Sala' },
+      { src: './img/2°/Salas/sala-planejada-14.webp', cat: 'salas', label: 'Sala' },
+      { src: './img/2°/Salas/sala-planejada-15.webp', cat: 'salas', label: 'Sala' },
+      { src: './img/2°/Salas/sala-planejada-16.webp', cat: 'salas', label: 'Sala' },
+      { src: './img/2°/Salas/sala-planejada-17.webp', cat: 'salas', label: 'Sala' },
+      { src: './img/2°/Salas/sala-planejada-18.webp', cat: 'salas', label: 'Sala' },
+      { src: './img/2°/Salas/sala-planejada-19.webp', cat: 'salas', label: 'Sala' },
+      { src: './img/2°/Salas/sala-planejada-20.webp', cat: 'salas', label: 'Sala' },
+      { src: './img/2°/Salas/sala-planejada-21.webp', cat: 'salas', label: 'Sala' },
+      { src: './img/2°/Salas/sala-planejada-22.webp', cat: 'salas', label: 'Sala' },
+      { src: './img/2°/Salas/sala-planejada-23.webp', cat: 'salas', label: 'Sala' },
+      { src: './img/2°/Salas/sala-planejada-24.webp', cat: 'salas', label: 'Sala' },
+      { src: './img/2°/Salas/sala-planejada-25.webp', cat: 'salas', label: 'Sala' },
+      { src: './img/2°/Salas/acabamento.webp', cat: 'salas', label: 'Painel de TV' },
+      { src: './img/2°/Salas/moveis.webp', cat: 'salas', label: 'Home Theater' },
+
+      // DIVERSOS
+      { src: './img/2°/Diversos/moveis-diversos-planejados-1.webp', cat: 'diversos', label: 'Outros Ambientes' },
+      { src: './img/2°/Diversos/moveis-diversos-planejados-2.webp', cat: 'diversos', label: 'Outros Ambientes' },
+      { src: './img/2°/Diversos/moveis-diversos-planejados-3.webp', cat: 'diversos', label: 'Outros Ambientes' },
+      { src: './img/2°/Diversos/moveis-diversos-planejados-4.webp', cat: 'diversos', label: 'Outros Ambientes' },
+      { src: './img/2°/Diversos/moveis-diversos-planejados-5.webp', cat: 'diversos', label: 'Outros Ambientes' },
+      { src: './img/2°/Diversos/moveis-diversos-planejados-6.webp', cat: 'diversos', label: 'Outros Ambientes' },
+      { src: './img/2°/Diversos/moveis-diversos-planejados-7.webp', cat: 'diversos', label: 'Outros Ambientes' },
+      { src: './img/2°/Diversos/moveis-diversos-planejados-8.webp', cat: 'diversos', label: 'Outros Ambientes' },
+      { src: './img/2°/Diversos/moveis-diversos-planejados-9.webp', cat: 'diversos', label: 'Outros Ambientes' },
+      { src: './img/2°/Diversos/moveis-diversos-planejados-10.webp', cat: 'diversos', label: 'Outros Ambientes' },
+      { src: './img/2°/Diversos/moveis-diversos-planejados-11.webp', cat: 'diversos', label: 'Outros Ambientes' },
+      { src: './img/2°/Diversos/moveis-diversos-planejados-12.webp', cat: 'diversos', label: 'Outros Ambientes' },
+      { src: './img/2°/Diversos/moveis-diversos-planejados-13.webp', cat: 'diversos', label: 'Outros Ambientes' },
+      { src: './img/2°/Diversos/moveis-diversos-planejados-14.webp', cat: 'diversos', label: 'Outros Ambientes' },
+      { src: './img/2°/Diversos/moveis-diversos-planejados-15.webp', cat: 'diversos', label: 'Outros Ambientes' },
+      { src: './img/2°/Diversos/moveis-diversos-planejados-16.webp', cat: 'diversos', label: 'Outros Ambientes' },
+      { src: './img/2°/Diversos/moveis-diversos-planejados-17.webp', cat: 'diversos', label: 'Outros Ambientes' },
+      { src: './img/2°/Diversos/moveis-diversos-planejados-18.webp', cat: 'diversos', label: 'Outros Ambientes' },
+      { src: './img/2°/Diversos/moveis-diversos-planejados-19.webp', cat: 'diversos', label: 'Outros Ambientes' },
+      { src: './img/2°/Diversos/moveis-diversos-planejados-20.webp', cat: 'diversos', label: 'Outros Ambientes' },
+      { src: './img/2°/Diversos/moveis-diversos-planejados-21.webp', cat: 'diversos', label: 'Outros Ambientes' },
+      { src: './img/2°/Diversos/moveis-diversos-planejados-22.webp', cat: 'diversos', label: 'Outros Ambientes' },
+      { src: './img/2°/Diversos/moveis-diversos-planejados-23.webp', cat: 'diversos', label: 'Outros Ambientes' },
+      { src: './img/2°/Diversos/moveis-diversos-planejados-24.webp', cat: 'diversos', label: 'Outros Ambientes' },
+      { src: './img/2°/Diversos/moveis-diversos-planejados-25.webp', cat: 'diversos', label: 'Outros Ambientes' },
+      { src: './img/2°/Diversos/moveis-diversos-planejados-26.webp', cat: 'diversos', label: 'Outros Ambientes' },
+      { src: './img/2°/Diversos/moveis-diversos-planejados-27.webp', cat: 'diversos', label: 'Outros Ambientes' },
+      { src: './img/2°/Diversos/ambiente.webp', cat: 'diversos', label: 'Mobiliário' },
+      { src: './img/2°/Diversos/moveis-bonitos.webp', cat: 'diversos', label: 'Decoração Planejada' }
+    ];
+
+    // Configurações da Paginação
+    const ITEMS_PER_PAGE = 12;
+    let currentFilter = 'todos';
+    let visibleItemsCount = ITEMS_PER_PAGE;
+    let filteredList = [...allImages];
+
+    const galleryGrid = document.getElementById('galleryGrid');
+    const loadMoreBtn = document.getElementById('loadMoreBtn');
+    const filterBtns = document.querySelectorAll('.gallery-filter-btn');
+
+    // Função de renderização rápida da galeria
+    function renderGallery() {
+      // Limpa grid
+      galleryGrid.innerHTML = '';
+      
+      // Pega itens que devem ser exibidos
+      const itemsToDisplay = filteredList.slice(0, visibleItemsCount);
+
+      itemsToDisplay.forEach((item, index) => {
+        const itemEl = document.createElement('div');
+        itemEl.className = 'gallery-item';
+        itemEl.style.animationDelay = `${(index % ITEMS_PER_PAGE) * 40}ms`;
+        itemEl.dataset.index = index;
+
+        itemEl.innerHTML = `
+          <img src="${item.src}" alt="${item.label} planejado de alto padrão" loading="lazy">
+          <div class="gallery-zoom-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+          </div>
+          <div class="gallery-overlay">
+            <span class="gallery-cat">${item.label}</span>
+          </div>
+        `;
+
+        // Click handler para o lightbox
+        itemEl.addEventListener('click', () => openLightbox(index));
+
+        galleryGrid.appendChild(itemEl);
+      });
+
+      // Gerenciar exibição do botão Carregar Mais
+      if (visibleItemsCount >= filteredList.length) {
+        loadMoreBtn.classList.add('hidden');
+      } else {
+        loadMoreBtn.classList.remove('hidden');
+      }
+    }
+
+    // Filtros de Categoria
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (btn.classList.contains('active')) return;
+
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        currentFilter = btn.dataset.filter;
+        
+        // Filtra a lista
+        if (currentFilter === 'todos') {
+          filteredList = [...allImages];
+        } else {
+          filteredList = allImages.filter(item => item.cat === currentFilter);
+        }
+
+        // Reseta paginação
+        visibleItemsCount = ITEMS_PER_PAGE;
+        renderGallery();
+      });
+    });
+
+    // Ação do Botão Carregar Mais
+    loadMoreBtn.addEventListener('click', () => {
+      visibleItemsCount += ITEMS_PER_PAGE;
+      renderGallery();
+    });
+
+
+    // ========== LIGHTBOX SISTEMA ==========
+    const lightbox = document.getElementById('lightboxModal');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxClose = document.getElementById('lightboxClose');
+    const lightboxPrev = document.getElementById('lightboxPrev');
+    const lightboxNext = document.getElementById('lightboxNext');
+    let activeLightboxIndex = 0;
+
+    function openLightbox(index) {
+      activeLightboxIndex = index;
+      const item = filteredList[activeLightboxIndex];
+      lightboxImg.src = item.src;
+      lightboxImg.alt = item.label;
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden'; // Impede scroll
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+      setTimeout(() => {
+        lightboxImg.src = '';
+      }, 300);
+    }
+
+    function navigateLightbox(dir) {
+      activeLightboxIndex += dir;
+      if (activeLightboxIndex < 0) {
+        activeLightboxIndex = filteredList.length - 1;
+      } else if (activeLightboxIndex >= filteredList.length) {
+        activeLightboxIndex = 0;
+      }
+      // Se a imagem desejada não foi renderizada no Grid ainda, tudo bem, o lightbox consegue acessar diretamente da lista filtrada!
+      const item = filteredList[activeLightboxIndex];
+      lightboxImg.src = item.src;
+      lightboxImg.alt = item.label;
+    }
+
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightboxPrev.addEventListener('click', () => navigateLightbox(-1));
+    lightboxNext.addEventListener('click', () => navigateLightbox(1));
+
+    // Fechar ao clicar no background
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    // Atalhos de teclado
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('active')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') navigateLightbox(-1);
+      if (e.key === 'ArrowRight') navigateLightbox(1);
+    });
+
+
+    // Inicializar galeria na carga inicial
+    renderGallery();
+  </script>
+</body>
+</html>
