@@ -138,7 +138,7 @@
 .blog-section { max-width:1100px; margin:0 auto; padding:4rem 4% 5rem; }
 .blog-featured { display:grid; grid-template-columns:1.3fr 1fr; gap:2.5rem; align-items:center; margin-bottom:4rem; padding-bottom:4rem; border-bottom:1px solid rgba(196,169,125,0.1); }
 .blog-featured__image { position:relative; border-radius:20px; overflow:hidden; }
-.blog-featured__image img { width:100%; height:320px; object-fit:cover; display:block; transition:none; }
+.blog-featured__image img { width:100%; height:320px; object-fit:cover; display:block; }
 .blog-featured__image:hover img { transform:none; }
 .blog-featured__tag { position:absolute; top:1rem; left:1rem; background:var(--bege); color:var(--preto); font-family:var(--font-body); font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; padding:0.35rem 0.9rem; border-radius:20px; }
 .blog-featured__meta { display:flex; gap:1rem; margin-bottom:0.8rem; align-items:center; }
@@ -149,10 +149,10 @@
 .blog-featured__soon { display:inline-block; padding:0.5rem 1.2rem; border:1px solid rgba(196,169,125,0.2); border-radius:30px; font-family:var(--font-body); font-size:0.8rem; color:rgba(250,248,245,0.4); }
 
 .blog-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-bottom:4rem; }
-.blog-card { border-radius:16px; overflow:hidden; background:rgba(255,255,255,0.02); border:1px solid rgba(196,169,125,0.08); transition:none; }
-.blog-card:hover { border-color:rgba(196,169,125,0.2); transform:none; }
+.blog-card { border-radius:16px; overflow:hidden; background:rgba(255,255,255,0.02); border:1px solid rgba(196,169,125,0.08); }
+.blog-card:hover { border-color:rgba(196,169,125,0.2); }
 .blog-card__image { position:relative; overflow:hidden; }
-.blog-card__image img { width:100%; height:180px; object-fit:cover; transition:none; }
+.blog-card__image img { width:100%; height:180px; object-fit:cover; }
 .blog-card:hover .blog-card__image img { transform:none; }
 .blog-card__tag { position:absolute; top:0.8rem; left:0.8rem; background:rgba(26,22,18,0.75); backdrop-filter:blur(8px); color:var(--bege); font-family:var(--font-body); font-size:0.65rem; font-weight:600; text-transform:uppercase; letter-spacing:0.1em; padding:0.35rem 0.7rem; border-radius:20px; }
 .blog-card__body { padding:1.5rem; }
