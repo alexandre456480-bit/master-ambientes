@@ -242,3 +242,13 @@
 .post-back-btn svg { transition: none; }
 .post-back-btn:hover svg { transform: none; }
 
+/* Desativação completa de transições e animações nas páginas de blog para carregamento e interações instantâneas */
+body.blog-page-body,
+body.blog-page-body *,
+body.blog-page-body *::before,
+body.blog-page-body *::after {
+  transition: none !important;
+  animation: none !important;
+  scroll-behavior: auto !important;
+}
+
