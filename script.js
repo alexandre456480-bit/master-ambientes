@@ -27,17 +27,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Dropdown Mobile Toggle
-  const navDropdown = document.getElementById('navDropdown');
-  if (navDropdown) {
-    const dropdownToggle = navDropdown.querySelector('.navbar__dropdown-toggle');
-    dropdownToggle.addEventListener('click', (e) => {
-      if (window.innerWidth <= 991) {
-        e.preventDefault();
-        navDropdown.classList.toggle('open');
-      }
-    });
-  }
+  // Dropdown Mobile Toggle (genérico para múltiplos dropdowns)
+  document.querySelectorAll('.navbar__dropdown').forEach(dropdown => {
+    const toggle = dropdown.querySelector('.navbar__dropdown-toggle');
+    if (toggle) {
+      toggle.addEventListener('click', (e) => {
+        if (window.innerWidth <= 991) {
+          e.preventDefault();
+          dropdown.classList.toggle('open');
+        }
+      });
+    }
+  });
 
   // ========== HERO SLIDESHOW ==========
   const slides = document.querySelectorAll('.hero__slide');

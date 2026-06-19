@@ -60,11 +60,27 @@
     <a href="#" class="navbar__logo" aria-label="Master Móveis - Página inicial">
       <img src="./img/logo1.webp" alt="Master Móveis Logo" width="150" height="50">
     </a>
-
     <div class="navbar__links" id="navLinks">
       <a href="/">Início</a>
       <a href="/resultados">Resultados</a>
-      <a href="/servicos">Serviços</a>
+      
+      <!-- Dropdown Serviços -->
+      <div class="navbar__dropdown" id="navDropdownServicos">
+        <a class="navbar__dropdown-toggle" role="button" tabindex="0">
+          Serviços 
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </a>
+        <div class="navbar__dropdown-menu">
+          <a href="/cozinha-planejada-goiania">Cozinha Planejada</a>
+          <a href="/closet-planejado-goiania">Closet Sob Medida</a>
+          <a href="/sala-planejada-goiania">Sala Planejada</a>
+          <a href="/home-office-planejado-goiania">Home Office</a>
+          <a href="/banheiro-planejado-goiania">Banheiro Planejado</a>
+          <a href="/area-gourmet-planejada-goiania">Área Gourmet</a>
+          <a href="/servicos">Todos Serviços</a>
+        </div>
+      </div>
+
       <a href="/sobre">Sobre</a>
       <a href="/orcamento">Orçamento</a>
 
